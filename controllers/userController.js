@@ -95,6 +95,7 @@ export const getMyProfile = catchAsyncError(async(req,res,next)=>{
 export const changePassword = catchAsyncError(async(req,res,next)=>{
 
     const {oldPassword,newPassword} = req.body;
+    console.log(oldPassword,newPassword);
     if( !oldPassword || !newPassword) return next(new ErrorHandler("Please Enter All field",400))
 
     const user = await User.findById(req.user._id).select("+password")
