@@ -18,7 +18,7 @@ export const getAllCourses = catchAsyncError(
          },
          category:{
             $regex:category,
-            $options:category
+            $options:"i"
          }
       }).select("-lectures");
       res.status(200).json({
